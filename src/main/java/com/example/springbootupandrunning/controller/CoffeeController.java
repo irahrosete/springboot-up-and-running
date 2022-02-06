@@ -55,4 +55,9 @@ public class CoffeeController {
         return (coffeeIndex == -1) ?
                 postCoffee(coffee) : coffee;
     }
+
+    @DeleteMapping("/coffees/{id}")
+    void deleteCoffee(@PathVariable String id) {
+        coffees.removeIf(c -> c.getId().equals(id));
+    }
 }

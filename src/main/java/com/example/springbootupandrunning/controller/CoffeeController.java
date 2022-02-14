@@ -17,12 +17,6 @@ public class CoffeeController {
 
     public CoffeeController(CoffeeRepository coffeeRepository) {
         this.coffeeRepository = coffeeRepository;
-        this.coffeeRepository.saveAll(List.of(
-                new Coffee("Café Cereza"),
-                new Coffee("Café Ganador"),
-                new Coffee("Café Lareño"),
-                new Coffee("Café Três Pontas")
-        ));
     }
 
     @GetMapping
@@ -52,4 +46,3 @@ public class CoffeeController {
         coffeeRepository.deleteById(id);
     }
 }
-

@@ -47,5 +47,15 @@
         </tbody>
     </table>
 </div>
+<script type="text/javascript">
+    window.onload = setupRefresh;
+    function setupRefresh() {
+        setTimeout("refreshPage();", 5000)
+    }
+
+    function refreshPage() {
+        window.location = location.href;
+    }
+</script>
 </body>
 </html>

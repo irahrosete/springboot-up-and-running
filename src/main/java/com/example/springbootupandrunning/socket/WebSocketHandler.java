@@ -20,7 +20,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
     @NonNull
     private final AircraftRepository aircraftRepository;
 
-    public List<WebSocketSession> setSessionList() {
+    public List<WebSocketSession> getSessionList() {
         return sessionList;
     }
 

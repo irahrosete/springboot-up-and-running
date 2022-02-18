@@ -14,20 +14,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class PositionController {
     @NonNull
     private final AircraftRepository aircraftRepository;
-    private WebClient webClient = WebClient.create("http://localhost:7634/aircraft");
 
     @GetMapping("/aircraft")
     public String getCurrentAircraftPositions(Model model) {
-        aircraftRepository.deleteAll();
-
-        webClient
-            .get()
-            .retrieve()
-            .bodyToFlux(Aircraft.class)
-            .filter(plane -> !plane.getReg().isEmpty())
-            .toStream()
-            .forEach(aircraftRepository::save);
-
         model.addAttribute("currentPositions", aircraftRepository.findAll());
 
         return "positions";
